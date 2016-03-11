@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var Person = function(name, hobbies) {
+				this.name = name;
+				this.hobbies = hobbies;
+			};
+			
+			Person.prototype.sayName = function() {
+				console.log(this.name);
+			};
+			
+			var h1 = ['a', 'b', 'c'];
+			var h2 = ['d', 'e'];
+			
+			var zs = new Person('张三', h1);
+			var ls = new Person('李四', h2);
+			
+			zs.sayName();
+			ls.sayName();
+			
+			zs.hobbies = ['x', 'y'];
+			
+			console.log(zs);
+			console.log(ls);
+		</script>
+	</body>
+</html>
