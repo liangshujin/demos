@@ -1,3 +1,10 @@
+/*
+ * @author: situ
+ * @url: dohtml5.duapp.com
+ * @from: WEB开发大本营
+ * @email：gao_st@126.com
+ * @qq: 454123662
+ */
 !function(window, document, $, undefined) {
 	$.fn.slider = function() {
 		this.each(function() {
@@ -28,14 +35,15 @@
 		            });
 		
 		        } else { // 右
-		            $tmpItem = $target.find('.img-wp > div').last().clone();
-		            for (var i=0; i<oldIndex - newIndex; i++) {
+		            $tmpItem = $target.find('.img-wp > div').first().clone();
+		            for(var i=0; i<oldIndex - newIndex; i++) {
                         $target.find('.img-wp').prepend($target.find('.img-wp > div').last());
                     }
-		           	$target.find('.img-wp').append($tmpItem);
+		           	$target.find('.img-wp > div').first().after($tmpItem);
+		           	
 					$target.find('.img-wp').css({'margin-left': -width});
 					$target.find('.img-wp').stop().animate({'margin-left': 0}, 500, function(){
-                    	$target.find('.img-wp > div').last().remove();
+                    	$target.find('.img-wp > div').first().next().remove();
                     });
 		        }
 		    });

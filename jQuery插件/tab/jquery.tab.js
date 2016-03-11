@@ -3,7 +3,7 @@
  * @url: dohtml5.duapp.com
  * @from: WEB开发大本营
  * @email：gao_st@126.com
- * @qq: 958659019
+ * @qq: 454123662
  */
 
 !function(window, document, $, undefined) {
