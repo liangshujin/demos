@@ -9,7 +9,25 @@
 	$.fn.slider = function() {
 		this.each(function() {
 			var $target = $(this),
-				width = $target.width();
+				width = $target.width(),
+				timer;
+				
+			// 定时切换
+			$target
+				.on('mouseover', function() {
+					clearInterval(timer);
+				})
+				.on('mouseout', function() {
+					autoPlay();
+				});
+				
+			function autoPlay() {
+				timer = setInterval(function() {
+					$target.find('a.next').trigger('click');
+				}, 2000);
+			}
+			
+			autoPlay();
 				
 			// 底部圆点点击事件
 		    $target.find('.img-trigger li').on('click', function() {
@@ -17,11 +35,11 @@
 		            newIndex = $this.index(),
 		            oldIndex = $target.find('.img-wp > div').first().attr('index'),
 		            $tmpItem;
-		
+				
+				$tmpItem = $target.find('.img-wp > div').first().clone();
 		        $this.addClass('on').siblings('.on').removeClass('on');
 		
 		        if (newIndex > oldIndex) { // 左
-		            $tmpItem = $target.find('.img-wp > div').first().clone();
 		            for(var i=0; i<newIndex - oldIndex; i++) {
 		                $target.find('.img-wp').append($target.find('.img-wp > div').first());
 		            }
@@ -34,8 +52,7 @@
 		                $target.find('.img-wp').css({'margin-left': 0});
 		            });
 		
-		        } else { // 右
-		            $tmpItem = $target.find('.img-wp > div').first().clone();
+		        } else if (newIndex < oldIndex) { // 右
 		            for(var i=0; i<oldIndex - newIndex; i++) {
                         $target.find('.img-wp').prepend($target.find('.img-wp > div').last());
                     }
