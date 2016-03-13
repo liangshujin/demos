@@ -13,6 +13,7 @@ a {
 
 body {
 	font-family: 微软雅黑;
+	background-color: #f6f5fa;
 }
 
 .icons {
@@ -28,6 +29,7 @@ body {
 	height: 28px;
 	line-height: 28px;
 	border-bottom: 1px solid #ccc;
+	background-color: #fff;
 }
 
 .top-bar .tb-inner-wp {
@@ -103,8 +105,10 @@ body {
 .tb-right li.mobile .icons {
 	display: inline-block;
     width: 13px;
-    height: 26px;
-    background-position: -112px -65px;
+    height: 19px;
+    background-position: -112px -69px;
+    position: relative;
+    top: 4px;
 }
 
 .tb-right li.mobile {
@@ -128,6 +132,7 @@ body {
 /* logo wp */
 .logo-wp {
 	height: 70px;
+	background-color: #fff;
 }
 
 .logo-inner {
@@ -311,4 +316,121 @@ body {
 	color: red;
 	font-size: 12px;
 	font-weight: bold;
+}
+
+/* news */
+.news {
+	width: 1190px;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+
+.news h1 {
+	font-size: 24px;
+	font-weight: normal;
+	margin-bottom: 20px;
+}
+
+.news .news-left {
+	float: left;
+	width: 883px;
+	margin-right: 20px;
+}
+
+.news-left .nl-level1 {
+	overflow: hidden;
+}
+
+.news-left .nl-level1 > div, .news-left .nl-level1 > div a {
+	float: left;
+	width: 430px;
+}
+
+.news-left .nl-level1 > div a {
+	font-size: 20px;
+	text-align: center;
+	margin-bottom: 10px;
+	color: #333;
+}
+
+.news-left .nl-level1 > div a:hover {
+	color: #006baf;
+}
+
+.news-left .nl-level1 ul {
+	float: left;
+	font-size: 12px;
+	width: 50%;
+}
+
+.news-left .nl-level1 ul li {
+	height: 28px;
+	line-height: 28px;
+	position: relative;
+	padding-left: 10px;
+}
+
+.news-left .nl-level1 ul li i {
+	position: absolute;
+    width: 3px;
+    height: 3px;
+    background-color: #ccc;
+    top: 50%;
+    margin-top: -1.5px;
+    left: 0;
+}
+
+.zf-img-wp {
+	float: left;
+	width: 105px;
+}
+
+.zf-title {
+	font-size: 14px;
+}
+
+.zf-detail {
+	float: left;
+	width: 300px;
+	font-size: 12px;
+	margin-left: 10px;
+}
+
+.zf-img-wp img {
+	width: 105px;
+	height: 73px;
+	display: block;
+}
+
+.news .news-right {
+	float: left;
+}
+
+.banner1-wp {
+	margin: 10px 0;
+}
+
+.news-right img {
+	width: 287px;
+	height: 120px;
+}
+
+.news-right .nr-item {
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.nr-detail {
+	position: absolute;
+    left: 0;
+    bottom: 0px;
+    background-color: #333;
+    /* width: 100%; */
+    right: 0;
+    text-align: center;
+    height: 25px;
+    line-height: 25px;
+    color: #fff;
+    font-size: 14px;
+    opacity: 0.8;
 }
