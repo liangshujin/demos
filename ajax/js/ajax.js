@@ -13,15 +13,31 @@ function onSuccess(data) {
 
 !function(window, document, $, undefined) {
 	
-	var renderSel = function() {
-		var url = 'http://dohtml5.duapp.com/php/wbc2/getPlace.php?callback=?';
-		$.get(url, function(data) {
-			var arr = [];
+	$('#provinceSel').on('change', function() {
+		var $this = $(this),
+			pid = $this.val();
+		
+		renderSel(pid, 'citySel');
+	});
+	
+	
+	var renderSel = function(tmpId, renderId) {
+		var url = 'http://dohtml5.duapp.com/php/wbc2/getPlace.php?callback=?',
+			param;
+			
+		renderId = renderId || 'provinceSel';
+		
+		if (tmpId) {
+			param = {id: tmpId};
+		}
+		
+		$.get(url, param, function(data) {
+			var arr = ['<option value="0">请选择</option>'];
 			$.each(data, function(i, obj) {
-				arr.push('<option value="', obj.id, '">', obj.province, '</option>');
+				arr.push('<option value="', obj.provinceID || obj.cityID, '">', obj.province || obj.city, '</option>');
 			});
 			
-			$('#provinceSel').html(arr.join(''));
+			$('#' + renderId).html(arr.join(''));
 		}, 'json');
 	};
 	
