@@ -60,3 +60,14 @@ body {
 .urls {
     width: 70%;
 }
+
+.info {
+    text-align: center;
+    height: 200px;
+    line-height: 200px;
+    background-color: red;
+    margin-top: 50px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 90px;
+}
