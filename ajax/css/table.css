@@ -26,3 +26,30 @@ table, th, td {
 .masker-wp {
     display: none;
 }
+
+ul, li {
+    list-style: none;
+}
+
+ul.paging li {
+    float: left;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    background-color: #fff;
+    border: 1px solid red;
+    margin-right: 10px;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+html, body, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+.paging li.active {
+    background-color: red;
+    color: #fff;
+}

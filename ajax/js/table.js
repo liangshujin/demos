@@ -1,7 +1,8 @@
 !function(window, document, $, undefined) {
 
     var $maskerWpId = $('#maskerWpId'),
-        cache = {};
+        cache = {},
+        PAGESIZE = 3;
 
     var bindEvent = function() {
         $('.del-btn').off('click').on('click', onDelBtnClick);
@@ -11,6 +12,21 @@
         });
         $('#submitBtn').off('click').on('click', onSubmitBtnClick);
         $('.update-btn').off('click').on('click', onUpdateBtnClick);
+
+        $('#searchBtn').off('click').on('click', onSearchBtnClick);
+    };
+
+    var onSearchBtnClick = function() {
+        var $searchTxt = $('#searchTxt'),
+            val = $.trim($searchTxt.val());
+
+        /*if (val.length == 0) {
+            alert('请输入要搜索的内容');
+            return;
+        }*/
+
+        renderTable(val);
+
     };
 
     var onUpdateBtnClick = function() {
@@ -91,11 +107,55 @@
 
     };
 
-    var renderTable = function() {
-        var url = 'http://dohtml5.duapp.com/php/wbc2/userList.php?callback=?';
-        $.get(url, function(response) {
+    var paging = function(total, currPage) {
+        // if (total == 0)
+        var totalPage = Math.ceil(total / PAGESIZE),
+            lis = [];
+
+        currPage = currPage || 0;
+
+        for (var i=0; i<totalPage; i++) {
+            if (i == currPage) {
+                lis.push('<li page="', i, '" class="active">', (i + 1), '</li>');
+            } else {
+                lis.push('<li page="', i, '">', (i + 1), '</li>');
+            }
+            
+        }
+
+        $('#pagingUl')
+            .html(lis.join(''))
+            .find('li')
+            .off('click')
+            .on('click', onPagingLiClick);
+    };
+
+    var onPagingLiClick = function() {
+        var $this = $(this),
+            page = $this.attr('page');
+
+        renderTable('', page);
+    };
+
+    var renderTable = function(q, p) {
+        var url = 'http://dohtml5.duapp.com/php/wbc2/userList.php?callback=?',
+            param = {size: PAGESIZE};
+
+        if (q) {
+            $.extend(param, {query: q});
+        }
+
+        if (p) {
+            $.extend(param, {page: p});
+        }
+
+        $.get(url, param, function(response) {
             var data = response.data,
-                trs = [];
+                trs = [],
+                total = response.total;
+
+            paging(total, p);
+
             $.each(data, function(i, obj) {
                 trs.push(
                     '<tr>',
