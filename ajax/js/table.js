@@ -108,7 +108,7 @@
     };
 
     var paging = function(total, currPage) {
-        var totalPage = Math.ceil(total / PAGESIZE),
+        /*var totalPage = Math.ceil(total / PAGESIZE),
             lis = [],
             max = 10,
             start = 2,
@@ -148,7 +148,7 @@
             .html(lis.join(''))
             .find('li')
             .off('click')
-            .on('click', onPagingLiClick);
+            .on('click', onPagingLiClick);*/
     };
 
     var paging2 = function(total, currPage) {
