@@ -44,6 +44,24 @@ ul.paging li {
     cursor: pointer;
 }
 
+ul.paging li.more {
+    border: none;
+}
+
+ul.paging li.page-btn {
+    width: 60px;
+}
+
+ul.paging li.page-jump {
+    width: 100px;
+    border: none;
+}
+
+ul.paging li.page-jump input {
+    width: 30px;
+    margin-right: 5px;
+}
+
 html, body, ul, li {
     margin: 0;
     padding: 0;

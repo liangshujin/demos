@@ -108,51 +108,84 @@
     };
 
     var paging = function(total, currPage) {
-        /*var totalPage = Math.ceil(total / PAGESIZE),
+        var totalPage = Math.ceil(total / PAGESIZE),
             lis = [],
-            max = 10,
+            max = 8,
             start = 2,
             counter = 0;
 
         currPage = currPage || 0;
 
+        if (currPage > 0) {
+            lis.push('<li class="page-btn prev">上一页</li>');
+        }
+
         lis.push('<li page="0">1</li>');
 
-        console.log(currPage);
+        if (currPage > 5) {
+            start = currPage - 3;
+            lis.push('<li class="more">...</li>');
+        }
 
-        if (currPage + 3 > max) {
-            start = currPage;
-            lis.push('<li>...</li>');
+        if (start + max >= totalPage) {
+            start = totalPage - max;
         }
 
         for (var i=start; i<totalPage; i++) {
 
-            if (counter >= max) {
-                lis.push('<li>...</li>');
-                break;
-            }
-
-            if (i == currPage) {
-                lis.push('<li page="', (i - 1), '">', i, '</li>');
-            } else {
-                lis.push('<li page="', (i - 1), '">', i, '</li>');
-            }
+            lis.push('<li page="', (i - 1), '">', i, '</li>');
 
             counter++;
+
+            if (counter > max) {
+                break;
+            }
             
         }
 
+        if (totalPage - currPage > 6) {
+            lis.push('<li class="more">...</li>');
+        }
+
         lis.push('<li page="', (totalPage - 1), '">', totalPage, '</li>');
+
+        if (currPage < totalPage - 1) {
+            lis.push('<li class="page-btn next">下一页</li>');
+        }
+
+        lis.push('<li class="page-jump"><input type="text" value="'+(currPage * 1 + 1)+'"><button>GO</button></li>');
 
         $('#pagingUl')
             .html(lis.join(''))
             .find('li')
             .off('click')
-            .on('click', onPagingLiClick);*/
+            .on('click', onPagingLiClick).
+            end()
+            .find('li[page='+currPage+']').addClass('active')
+            .end()
+            .find('.page-jump > button')
+            .off('click')
+            .on('click', onPageJumpBtnClick);
     };
 
-    var paging2 = function(total, currPage) {
-        // if (total == 0)
+    var onPageJumpBtnClick = function() {
+        var $this = $(this),
+            page = $this.parent().find('input').val(),
+            $p = $this.parents('#pagingUl'),
+            max = $p.find('li[page]:last').attr('page') * 1;
+
+            if (page > max) {
+                page = max + 1;
+            }
+
+            if (page <= 0) {
+                page = 1;
+            }
+
+        renderTable('', page - 1);
+    };
+
+    /*var paging2 = function(total, currPage) {
         var totalPage = Math.ceil(total / PAGESIZE),
             lis = [];
 
@@ -172,11 +205,26 @@
             .find('li')
             .off('click')
             .on('click', onPagingLiClick);
-    };
+    };*/
 
     var onPagingLiClick = function() {
         var $this = $(this),
-            page = $this.attr('page');
+            page = $this.attr('page'),
+            $p;
+
+        if ($this.hasClass('more') || $this.hasClass('page-jump')) {
+            return;
+        }
+
+        if (!page) {
+            $p = $this.parents('#pagingUl');
+            page = $p.find('li.active').attr('page') * 1;
+            if ($this.hasClass('next')) {
+                page = ++page;
+            } else {
+                page = --page;
+            }
+        }
 
         renderTable('', page);
     };
