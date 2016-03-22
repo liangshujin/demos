@@ -108,6 +108,50 @@
     };
 
     var paging = function(total, currPage) {
+        var totalPage = Math.ceil(total / PAGESIZE),
+            lis = [],
+            max = 10,
+            start = 2,
+            counter = 0;
+
+        currPage = currPage || 0;
+
+        lis.push('<li page="0">1</li>');
+
+        console.log(currPage);
+
+        if (currPage + 3 > max) {
+            start = currPage;
+            lis.push('<li>...</li>');
+        }
+
+        for (var i=start; i<totalPage; i++) {
+
+            if (counter >= max) {
+                lis.push('<li>...</li>');
+                break;
+            }
+
+            if (i == currPage) {
+                lis.push('<li page="', (i - 1), '">', i, '</li>');
+            } else {
+                lis.push('<li page="', (i - 1), '">', i, '</li>');
+            }
+
+            counter++;
+            
+        }
+
+        lis.push('<li page="', (totalPage - 1), '">', totalPage, '</li>');
+
+        $('#pagingUl')
+            .html(lis.join(''))
+            .find('li')
+            .off('click')
+            .on('click', onPagingLiClick);
+    };
+
+    var paging2 = function(total, currPage) {
         // if (total == 0)
         var totalPage = Math.ceil(total / PAGESIZE),
             lis = [];

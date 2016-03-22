@@ -101,7 +101,14 @@
         </div>
     </div>
 
-    <h1>(3)元素外插入一个空元素，硬顶</h1>
+    <h1>
+        (3)元素外插入一个空元素，硬顶
+        helper高度为父元素一半，
+        margin-bottom为负的待居中元素高度的一半，
+        float是为了让辅助元素没有宽度,
+        因为有float，下面需要清楚浮动。
+
+    </h1>
     <hr>
     <div class="outer">
         <p class="helper"></p>
@@ -118,7 +125,7 @@
         </div>
     </div>
 
-    <h1>(5)line-height = height(仅文本有效)</h1>
+    <h1>(5)line-height = height(仅单行文本有效)</h1>
     <hr>
     <div class="outer valign5">
         test
