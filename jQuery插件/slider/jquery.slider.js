@@ -13,13 +13,13 @@
 				timer;
 				
 			// 定时切换
-			$target
-				.on('mouseover', function() {
-					clearInterval(timer);
-				})
-				.on('mouseout', function() {
-					autoPlay();
-				});
+			// $target
+			// 	.on('mouseover', function() {
+			// 		clearInterval(timer);
+			// 	})
+			// 	.on('mouseout', function() {
+			// 		autoPlay();
+			// 	});
 				
 			function autoPlay() {
 				timer = setInterval(function() {
@@ -27,7 +27,7 @@
 				}, 2000);
 			}
 			
-			autoPlay();
+			// autoPlay();
 				
 			// 底部圆点点击事件
 		    $target.find('.img-trigger li').on('click', function() {
@@ -47,7 +47,7 @@
 		
 		            $target.find('.img-wp').stop().animate({
 		                'margin-left': - width
-		            }, 500, function() {
+		            }, 5000, function() {
 		                $target.find('.img-wp > div').first().remove();
 		                $target.find('.img-wp').css({'margin-left': 0});
 		            });
@@ -59,7 +59,7 @@
 		           	$target.find('.img-wp > div').first().after($tmpItem);
 		           	
 					$target.find('.img-wp').css({'margin-left': -width});
-					$target.find('.img-wp').stop().animate({'margin-left': 0}, 500, function(){
+					$target.find('.img-wp').stop().animate({'margin-left': 0}, 5000, function(){
                     	$target.find('.img-wp > div').first().next().remove();
                     });
 		        }
