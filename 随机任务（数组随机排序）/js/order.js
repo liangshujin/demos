@@ -47,7 +47,7 @@
     };
 
     var randomArray = function(arr) {
-        return arr.sort(function(){return Math.random () > 0.5});
+        return arr.sort(function(){return Math.random() > 0.5});
     };
 
 }(window, document, jQuery);
