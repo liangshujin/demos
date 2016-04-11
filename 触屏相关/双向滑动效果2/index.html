@@ -24,7 +24,14 @@
         #navBar {
             float: right;
             height: 100%;
-            width: 20%;
+        }
+
+        #navBar .swiper-slide {
+            /*height: 50px!important;*/
+            width: 50px;
+            /*line-height: 50px;*/
+            border-radius: 50%;
+            text-align: center;
         }
 
         #pageWp {
@@ -89,6 +96,11 @@
                 navBar.slideTo(index, 500, false);
                 pageWp.slideTo(index, 100, false);
                 activeItem(index);
+            },
+            onInit: function() {
+                var $slider = $('#navBar .swiper-slide'),
+                    h = $slider.height();
+                $slider.width(h);
             }
         });
 
