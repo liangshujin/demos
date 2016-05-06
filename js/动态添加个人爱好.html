@@ -57,7 +57,7 @@
 			
 			if (len >= 3) {
 				addBtn.disabled = 'disabled';
-				return;
+				// return;
 			}
 		};
 
@@ -68,9 +68,15 @@
 				delTxt = document.createTextNode('删除'),
 				nbsp = document.createTextNode('\r\n');
 
+			// <input>
+
 			input.type = 'text';
+
+			// <input type="text">
+
 			button.appendChild(delTxt);
 			button.onclick = onDelBtnClick;
+			// <button onclick="onDelBtnClick">
 
 			p.appendChild(input);
 			p.appendChild(nbsp);
@@ -84,6 +90,9 @@
 		}
 
 		function onDelBtnClick() {
+
+			// console.log(this);
+
 			var r = confirm('确定要删除吗？');
 			if (r) {
 				moreWp.removeChild(this.parentNode);
