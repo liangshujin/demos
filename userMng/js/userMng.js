@@ -11,6 +11,19 @@ $(document).ready(function() {
 		$('#addUserBtn').on('click', onAddUserBtnClick);
 		$('#closeBtn, #dlgCancelBtn').on('click', onCloseBtnClick);
 		$('#dlgSaveBtn').on('click', onDlgSaveBtnClick);
+		$('#userTable').on('click', '.del-btn', onDelBtnClick);
+	};
+
+	var onDelBtnClick = function() { 
+		var $this = $(this),
+			uid = $this.attr('uid'); // this.uid
+
+		if (confirm('确定要删除该用户吗？')) {
+			$.get('server/ajaxDelUser.php', {id: uid}, function(response) {
+				initTable();
+			}, 'json');
+		}
+		
 	};
 
 	var initTable = function() {
@@ -18,6 +31,7 @@ $(document).ready(function() {
 		$.get(url, function(response) {
 			if (response.success) {
 				renderTable(response.data);
+				// console.log($('.del-btn'))
 			}
 		}, 'json');
 	};
@@ -45,7 +59,7 @@ $(document).ready(function() {
 					'<td>item5</td>',
 					'<td>item6</td>',
 					'<td>', hobbies, '</td>',
-					'<td></td>',
+					'<td><button uid="', obj.id, '" class="btn del-btn">删除</button></td>',
 				'</tr>'
 			);
 		});
