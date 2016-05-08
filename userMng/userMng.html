@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>用户管理系统</title>
+	<link rel="stylesheet" href="../lib/reset.css">
+	<link rel="stylesheet" href="css/userMng.css">
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+	<script src="js/userMng.js"></script>
+</head>
+<body>
+	
+	<div class="header">
+		用户管理
+	</div>
+
+	<div class="main">
+		<div class="tool-bar">
+			<button id="addUserBtn" class="btn">新增</button>
+		</div>
+		
+		<table id="userTable" class="table">
+			<thead>
+				<tr>
+					<th>姓名</th>
+					<th>年龄</th>
+					<th>性别</th>
+					<th>电话</th>
+					<th>住址</th>
+					<th>学历</th>
+					<th>爱好</th>
+					<th></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				
+			</tbody>
+		</table>
+		
+	</div>
+
+	<div class="masker-wp">
+		<div class="masker"></div>
+		<div class="dialog">
+			<div class="dialog-header">
+				<span>对话框</span>
+				<i id="closeBtn">&times;</i>
+			</div>
+			<div class="dialog-body">
+				<p>
+					<label>姓名：<input name="name" type="text"></label>
+				</p>
+				<p>
+					<label>年龄：<input name="age" type="text"></label>
+				</p>
+			</div>
+			<div class="dialog-footer">
+				<button id="dlgCancelBtn" class="btn">取消</button>
+				<button id="dlgSaveBtn" class="btn active">确定</button>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

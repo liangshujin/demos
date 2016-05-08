@@ -3,6 +3,14 @@
 	date_default_timezone_set("Asia/Shanghai");
 
 	require_once ('db.php');
+
+	// $name = $_POST["name"];
+	// $age = $_POST["age"];
+	// $gender = $_POST["gender"];
+	// $edu = $_POST["edu"];
+	// $mobile = $_POST["mobile"];
+	// $address = $_POST["address"];
+	// $hobbies = $_POST["hobbies"];
 	
 	$name = $_GET["name"];
 	$age = $_GET["age"];
@@ -30,6 +38,7 @@
     $id = $db->insert ('usermng', $data);
 
     if ($id > 0) {
+    	// echo 'success';
         echo json_encode(array("success" => true, "message" => "注册成功"));
     } else {
         echo json_encode(array("success" => false, "message" => "注册失败"));

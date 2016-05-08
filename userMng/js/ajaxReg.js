@@ -5,7 +5,12 @@ $(document).ready(function() {
 
 	$('#submitBtn').on('click', function() {
 
-		// check
+		// return;
+
+		var hobbies = [];
+		$('input[name=hobbies]:checked').each(function(index, element) {
+			hobbies.push(element.value);
+		});
 
 		param = {
 			name: $('#name').val(),
@@ -14,17 +19,53 @@ $(document).ready(function() {
 			edu: $('#edu').val(),
 			mobile: $('#mobile').val(),
 			address: $('#address').val(),
-			hobbies: '篮球'
+			hobbies: hobbies.join('|')
 		}
 
-		$.get(url, param, function(data) {
-			if (data.success) {
-				alert('成功');
-			} else {
-				alert('失败');
+		// check
+
+		if (param.name == '') {
+			alert('姓名不能为空！');
+			$('#name').focus();
+			return;
+		}
+
+		$.ajax({
+			type: 'get',
+			dataType: 'json',
+			url: url,
+			data: param,
+			success: function(data) {
+				if (data.success) {
+					$('#resetBtn').trigger('click');
+					alert('成功');
+				} else {
+					alert('失败');
+				}
+			},
+			error: function() {
+				alert('error');
 			}
-			// console.log(typeof data);
-		}, 'json');
+		});
+
+		// $.getJSON(url, param, function(data) {
+		// 	if (data.success) {
+		// 		$('#resetBtn').trigger('click');
+		// 		alert('成功');
+		// 	} else {
+		// 		alert('失败');
+		// 	}
+		// });
+
+		// $.get(url, param, function(data) {
+		// 	if (data.success) {
+		// 		$('#resetBtn').trigger('click');
+		// 		alert('成功');
+		// 	} else {
+		// 		alert('失败');
+		// 	}
+		// 	// console.log(typeof data);
+		// }, 'json');
 
 	});
 
