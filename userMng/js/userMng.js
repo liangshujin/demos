@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
 	var $maskerWp = $('.masker-wp');
+	var cache = {};
 
 	var init = function() {
 		initTable();
@@ -9,9 +10,50 @@ $(document).ready(function() {
 
 	var bindEvt = function() {
 		$('#addUserBtn').on('click', onAddUserBtnClick);
+		$('#dlgUpdateBtn').on('click', ondlgUpdateBtnClick);
 		$('#closeBtn, #dlgCancelBtn').on('click', onCloseBtnClick);
 		$('#dlgSaveBtn').on('click', onDlgSaveBtnClick);
 		$('#userTable').on('click', '.del-btn', onDelBtnClick);
+		$('#userTable').on('click', '.update-btn', onUpdateBtnClick);
+	};
+
+	var ondlgUpdateBtnClick = function() {
+		var param = {
+			id: $('#uid').val(),
+			name: $('input[name=name]').val(),
+			age: $('input[name=age]').val(),
+			gender: '男',
+			edu: '本科',
+			mobile: '15810520000',
+			address: '北京市昌平区生命科学园',
+			hobbies: '篮球|唱歌'
+		};
+
+		var url = 'server/ajaxUpdateUser.php';
+
+		// check
+
+		$.get(url, param, function(data) {
+			if (data.success) {
+				initTable();
+				$maskerWp.hide();
+			}
+		}, 'json');
+	};
+
+	var onUpdateBtnClick = function() {
+		var $this = $(this),
+			uid = $this.attr('uid'), // this.uid
+			currObj = cache[uid];
+
+		$maskerWp.find('#uid').val(currObj.id);
+		$maskerWp.find('input[name=name]').val(currObj.name);
+		$maskerWp.find('input[name=age]').val(currObj.age);
+
+		$('#dlgUpdateBtn').show();
+		$('#dlgSaveBtn').hide();
+
+		$maskerWp.find('.dig-title').text('修改用户').end().show();
 	};
 
 	var onDelBtnClick = function() { 
@@ -59,9 +101,16 @@ $(document).ready(function() {
 					'<td>item5</td>',
 					'<td>item6</td>',
 					'<td>', hobbies, '</td>',
-					'<td><button uid="', obj.id, '" class="btn del-btn">删除</button></td>',
+					'<td>',
+						'<button uid="', obj.id, '" class="btn del-btn">删除</button>&nbsp;',
+						'<button uid="', obj.id, '" class="btn update-btn">修改</button>',
+					'</td>',
 				'</tr>'
 			);
+
+			// 生成缓存数据
+			cache[obj.id] = obj;
+
 		});
 
 		$('#userTable tbody').html(trs.join(''));
@@ -96,7 +145,9 @@ $(document).ready(function() {
 
 	var onAddUserBtnClick = function() {
 		$('.dialog input').val('');
-		$maskerWp.show();
+		$('#dlgUpdateBtn').hide();
+		$('#dlgSaveBtn').show();
+		$maskerWp.find('.dig-title').text('新增用户').end().show();
 	};
 
 	init();

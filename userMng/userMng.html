@@ -44,10 +44,11 @@
 		<div class="masker"></div>
 		<div class="dialog">
 			<div class="dialog-header">
-				<span>对话框</span>
+				<span class="dig-title">对话框</span>
 				<i id="closeBtn">&times;</i>
 			</div>
 			<div class="dialog-body">
+				<input type="hidden" id="uid">
 				<p>
 					<label>姓名：<input name="name" type="text"></label>
 				</p>
@@ -58,6 +59,7 @@
 			<div class="dialog-footer">
 				<button id="dlgCancelBtn" class="btn">取消</button>
 				<button id="dlgSaveBtn" class="btn active">确定</button>
+				<button id="dlgUpdateBtn" class="btn active">修改</button>
 			</div>
 		</div>
 	</div>

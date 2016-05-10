@@ -30,7 +30,7 @@ body {
 }
 
 .dialog {
-    position: absolute;
+    position: fixed;
     width: 500px;
     height: 200px;
     background: #fff;
@@ -78,6 +78,10 @@ table.table, .table td, .table th {
 table.table {
     border-collapse: collapse;
     width: 100%;
+}
+
+.table tr:hover {
+    background-color: yellow;
 }
 
 .dialog-body {
