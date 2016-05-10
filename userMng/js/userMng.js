@@ -79,41 +79,52 @@ $(document).ready(function() {
 	};
 
 	var renderTable = function(data) {
+		var tpl = $('#trTpl').html();
 		var trs = [];
+		var compiled = _.template(tpl);
+
+		_.each(data, function(obj) {
+			trs.push(compiled(obj));
+			cache[obj.id] = obj;
+		});
+
+		$('#userTable tbody').html(trs);
+
+		////////////////////////////////////////////////////
 
 		// check data
 
-		$.each(data, function(index, obj) {
-			var hobbies = obj.hobbies;
-			if (hobbies) {
-				hobbies = hobbies.split('|');
-				hobbies = '爱好：' + hobbies.join('；')
-			} else {
-				hobbies = '--';
-			}
+		// $.each(data, function(index, obj) {
+		// 	var hobbies = obj.hobbies;
+		// 	if (hobbies) {
+		// 		hobbies = hobbies.split('|');
+		// 		hobbies = '爱好：' + hobbies.join('；')
+		// 	} else {
+		// 		hobbies = '--';
+		// 	}
 
-			trs.push(
-				'<tr>',
-					'<td>', obj.name, '</td>',
-					'<td>', obj.age, '</td>',
-					'<td>', obj.gender, '</td>',
-					'<td>item4</td>',
-					'<td>item5</td>',
-					'<td>item6</td>',
-					'<td>', hobbies, '</td>',
-					'<td>',
-						'<button uid="', obj.id, '" class="btn del-btn">删除</button>&nbsp;',
-						'<button uid="', obj.id, '" class="btn update-btn">修改</button>',
-					'</td>',
-				'</tr>'
-			);
+		// 	trs.push(
+		// 		'<tr>',
+		// 			'<td>', obj.name, '</td>',
+		// 			'<td>', obj.age, '</td>',
+		// 			'<td>', obj.gender, '</td>',
+		// 			'<td>item4</td>',
+		// 			'<td>item5</td>',
+		// 			'<td>item6</td>',
+		// 			'<td>', hobbies, '</td>',
+		// 			'<td>',
+		// 				'<button uid="', obj.id, '" class="btn del-btn">删除</button>&nbsp;',
+		// 				'<button uid="', obj.id, '" class="btn update-btn">修改</button>',
+		// 			'</td>',
+		// 		'</tr>'
+		// 	);
 
-			// 生成缓存数据
-			cache[obj.id] = obj;
+		// 	// 生成缓存数据
+		// 	cache[obj.id] = obj;
 
-		});
+		// });
 
-		$('#userTable tbody').html(trs.join(''));
+		// $('#userTable tbody').html(trs.join(''));
 	}
 
 	var onDlgSaveBtnClick = function() {
