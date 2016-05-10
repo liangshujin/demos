@@ -20,8 +20,8 @@ $start = $pageSize * $page;
 $sql = "select * from usermng where 1=1";
 
 if (isset($query) && $query != '') {
-    $sql .= " and (username like '%".$query."%' ";
-    $sql .= " or name like '%".$query."%' )";
+    $sql .= " and (name like '%".$query."%' ";
+    $sql .= " or address like '%".$query."%' )";
 }
 
 $sql .= " order by id desc";
