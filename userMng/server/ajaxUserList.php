@@ -24,9 +24,9 @@ if (isset($query) && $query != '') {
     $sql .= " or address like '%".$query."%' )";
 }
 
-$sql .= " order by id desc";
+// $sql .= " order by id desc";
 
-// $sql .= " order by id desc limit $start, $pageSize";
+$sql .= " order by id desc limit $start, $pageSize";
 
 $wbc2_user = $db -> rawQuery($sql);
 
