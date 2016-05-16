@@ -1,0 +1,88 @@
+.nav {
+    width: 1190px;
+    margin: 0 auto;
+    height: 27px;
+}
+
+.nav-wp {
+    border-bottom: 1px solid #eee;
+}
+
+.nav-left a, .nav-right a {
+    float: left;
+    height: 27px;
+    line-height: 27px;
+    color: #8e9999;
+    font-size: 12px;
+    margin-right: 10px;
+}
+
+.nav-left a:hover {
+    color: #0aa770;
+}
+
+.icons {
+	background-image: url(../img/icons.png);
+}
+
+a.nav-all i {
+    display: inline-block;
+    width: 13px;
+    height: 16px;
+    background-position: -111px -36px;
+    position: relative;
+    top: 4px;
+    margin-right: 5px;
+}
+
+.nav-right {
+    float: right;
+}
+
+.menu-wp {
+    height: 59px;
+    border-bottom: 1px solid #3cb43c;
+}
+
+.menu a {
+    float: left;
+    width: 156px;
+    height: 45px;
+    background-image: url(../img/logo.png);
+    margin-top: 8px;
+}
+
+.menu ul {
+    float: left;
+    margin-left: 20px;
+    font-family: 'microsoft yahei';
+}
+
+.menu > div {
+}
+
+.menu li {
+    float: left;
+    height: 59px;
+    line-height: 59px;
+    padding: 0 20px;
+}
+
+.menu {
+    width: 1190px;
+    margin: 0 auto;
+}
+
+.menu li.active {
+    background-color: #3cb43c;
+    color: #fff;
+}
+
+.youhq {
+    float: right;
+    font-size: 13px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    margin-top: 11px;
+}
