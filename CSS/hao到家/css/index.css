@@ -171,8 +171,6 @@ ul.img-trigger li.active {
 
 .m-right {
     width: 265px;
-    height: 200px;
-    background: blue;
     float: left;
     margin-left: 10px;
 }
@@ -180,6 +178,7 @@ ul.img-trigger li.active {
 .module-wp {
     width: 1190px;
     margin: 20px auto 0;
+    overflow: hidden;
 }
 
 body {
@@ -412,4 +411,73 @@ span.sell {
     position: absolute;
     right: 0;
     bottom: 0;
+}
+
+.m-right .r-items {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.ri-title {
+    font-size: 18px;
+    color: #444;
+    height: 54px;
+    line-height: 54px;
+    text-indent: 40px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.ri-list span {
+    font-size: 14px;
+    color: #444;
+    line-height: 20px;
+}
+
+.ri-list a {
+    margin: 10px 10px 0;
+    display: block;
+}
+
+.ri-list img {
+    margin-top: 5px;
+    display: none;
+}
+
+.ri-list i {
+    background-color: #ccc;
+    width: 20px;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    font-style: normal;
+}
+
+.ri-list i.orange {
+    background-color: #ff6d00;
+}
+
+.ri-list i.green {
+    background-color: #3cb43c;
+}
+
+.ri-list {
+    padding-bottom: 10px;
+}
+
+.ri-list a.active img {
+    display: block;
+}
+
+.f-top {
+    height: 200px;
+    background-color: #fff;
+}
+
+.footer {
+    background-color: #333;
+}
+
+.f-bottom {
+    height: 70px;
 }
