@@ -30,6 +30,7 @@
 					<th>住址</th>
 					<th>学历</th>
 					<th>爱好</th>
+					<th>照片</th>
 					<th>操作</th>
 				</tr>
 			</thead>
@@ -49,13 +50,26 @@
 				<i id="closeBtn">&times;</i>
 			</div>
 			<div class="dialog-body">
+				<img id="tmpImg" src="img/default.png">
 				<input type="hidden" id="uid">
-				<p>
+				<div>
 					<label>姓名：<input name="name" type="text"></label>
-				</p>
-				<p>
+				</div>
+				<div>
 					<label>年龄：<input name="age" type="text"></label>
-				</p>
+				</div>
+				<div>
+					<label>
+						照片：
+						<div class="upload-btn">
+							上传
+							<form id="uploadForm" target="formTarget" action="../fileUploading/server/step1.php" method="post" enctype="multipart/form-data">
+								<input type="file" name="pic" />
+							</form>
+						</div>
+					</label>
+					<input type="hidden" id="tmpFileName">
+				</div>
 			</div>
 			<div class="dialog-footer">
 				<button id="dlgCancelBtn" class="btn">取消</button>
@@ -65,6 +79,8 @@
 		</div>
 	</div>
 
+		<!-- onerror="this.src='img/default.png'" -->
+		
 	<script type="text/template" id="trTpl">
 		<tr>
 			<td><%= name %></td>
@@ -74,11 +90,14 @@
 			<td></td>
 			<td></td>
 			<td></td>
+			<td><img src="../fileUploading/server/uploadImgs/<%= user_img %>"></td>
 			<td>
 				<button uid="<%= id %>" class="btn del-btn">删除</button>
 				<button uid="<%= id %>" class="btn update-btn">修改</button>
 			</td>
 		</tr>
 	</script>
+
+	<iframe id="formTarget" style="display: none" name="formTarget"></iframe>
 </body>
 </html>

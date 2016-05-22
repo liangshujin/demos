@@ -19,6 +19,7 @@
 	$mobile = $_GET["mobile"];
 	$address = $_GET["address"];
 	$hobbies = $_GET["hobbies"];
+	$img = $_GET["img"];
 
 	$now = date("Y-m-d h:i:s");
 
@@ -31,6 +32,7 @@
         "address" => $address,
         "mobile" => $mobile,
         "hobbies" => $hobbies,
+        "user_img" => $img,
         "edu" => $edu,
         "regDate" => $now
     );

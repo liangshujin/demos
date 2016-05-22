@@ -15,6 +15,27 @@ $(document).ready(function() {
 		$('#dlgSaveBtn').on('click', onDlgSaveBtnClick);
 		$('#userTable').on('click', '.del-btn', onDelBtnClick);
 		$('#userTable').on('click', '.update-btn', onUpdateBtnClick);
+		$('#uploadForm').on('change', '[name=pic]', onUploadChange);
+		$('#formTarget').on('load', onUploadFrameLoad);
+	};
+
+	var onUploadFrameLoad = function() {
+		var response = this.contentWindow.document.body.innerHTML;
+
+		if (!response) return;
+
+		// response = eval('(' + response + ')');
+		response = $.parseJSON(response);
+
+		if (response.success) {
+			$('#tmpImg').attr('src', '../fileUploading/server/uploadImgs/' + response.fileName);
+			$('#tmpFileName').val(response.fileName);
+		}
+	};
+
+
+	var onUploadChange = function() {
+		$('#uploadForm').submit();
 	};
 
 	var ondlgUpdateBtnClick = function() {
@@ -90,6 +111,12 @@ $(document).ready(function() {
 
 		$('#userTable tbody').html(trs);
 
+		$('img').on('error', function() {
+			$(this).parent().html('暂无照片')
+				.end().remove();
+			// this.src = 'img/default.png';
+		});
+
 		////////////////////////////////////////////////////
 
 		// check data
@@ -136,7 +163,8 @@ $(document).ready(function() {
 			edu: '本科',
 			mobile: '15810520000',
 			address: '北京市昌平区生命科学园',
-			hobbies: '篮球|唱歌'
+			hobbies: '篮球|唱歌',
+			img: $('#tmpFileName').val()
 		};
 
 		// check
