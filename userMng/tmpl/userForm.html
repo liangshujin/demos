@@ -1,9 +1,9 @@
-<div id="dialog" class="modal fade">
+<div id="userDlg" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">{{dialogTitle}}</h4>
+        <h4 class="modal-title">{{dlgTitle}}</h4>
       </div>
       <div class="modal-body">
         
@@ -59,20 +59,20 @@
 		    <label for="" class="col-sm-2 control-label">爱好：</label>
 		    <div class="col-sm-10">
 				<label class="checkbox-inline">
-				  <input type="checkbox" ng-true-value="篮球" ng-false-value="" ng-model="userData.hobbies.hobbies1"> 篮球
+				  <input type="checkbox" ng-model="userData.hobby.hb1" ng-true-value="篮球" ng-false-value=""> 篮球
 				</label>
 				<label class="checkbox-inline">
-				  <input type="checkbox" ng-model="userData.hobbies.hobbies2" ng-true-value="爬山" ng-false-value=""> 爬山
+				  <input type="checkbox" ng-model="userData.hobby.hb2" ng-true-value="爬山" ng-false-value=""> 爬山
 				</label>
 				<label class="checkbox-inline">
-				  <input type="checkbox" ng-model="userData.hobbies.hobbies3" ng-true-value="音乐" ng-false-value=""> 音乐
+				  <input type="checkbox" ng-model="userData.hobby.hb3" ng-true-value="音乐" ng-false-value=""> 音乐
 				</label>
 		    </div>
 		  </div>
 		  <div class="form-group">
 		    <label for="" class="col-sm-2 control-label">照片：</label>
 		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="pic">
+		      <input type="text" class="form-control" ng-model="userData.img">
 		    </div>
 		  </div>
 		</form>

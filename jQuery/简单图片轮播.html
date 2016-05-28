@@ -76,8 +76,8 @@
 	<script>
 		$(document).ready(function() {
 			var $slider = $('.img-slider'),
-				$ul = $('.img-slider > ul'),
-				$ol = $('.img-slider > ol'),
+				$ul = $('.img-slider > ul'), // $slider.find('ul')
+				$ol = $('.img-slider > ol'), // $slider.find('ol')
 				len = $ul.find('li').length,
 				width = $ul.find('li').width(),
 				ulWidth = len * width,
@@ -87,6 +87,7 @@
 
 			// for
 
+			// $slider.find('a')
 			$('.img-slider > a').on('click', function() {
 				var $this = $(this),
 					currIndex = $ol.find('li.active').index();
@@ -133,7 +134,8 @@
 
 			function runner() {
 				timer = setInterval(function() {
-					$('.img-slider > a.next').trigger('click');
+					$slider.find('a.next').trigger('click');
+					// $('.img-slider > a.next').trigger('click');
 				}, 2000);
 			}
 

@@ -44,7 +44,7 @@
 				<th>学历</th>
 				<th>爱好</th>
 				<th>照片</th>
-				<th>操作</th>
+				<th class="action-cell">操作</th>
 			</tr>
 			<tr ng-repeat="user in users">
 				<td>{{user.name}}</td>
@@ -55,13 +55,19 @@
 				<td>{{user.edu}}</td>
 				<td>{{user.hobbies}}</td>
 				<td>{{user.user_img}}</td>
-				<td></td>
+				<td class="action-cell">
+					<button ng-click="updateUser()" class="btn btn-xs btn-info">修改</button>
+					<button ng-click="delUser()" class="btn btn-xs btn-danger">删除</button>
+				</td>
 			</tr>
 		</table>
 
 		<!-- 用户对话框 -->
 		<div ng-include="'tmpl/userForm.html'"></div>
-		
+
+		<!-- 信息提示对话框 -->
+		<div ng-include="'tmpl/dialog.html'"></div>
+
 	</div>
 	
 </body>
