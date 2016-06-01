@@ -5,24 +5,26 @@
     <title>Document</title>
     <style type="text/css">
 
-        /*div {
-            background-color: red;
-            width: 300px;
-        }
+        /* :before, :after 伪元素用法总结 */
 
-        div:after {
+         div {
+            background-color: red;
+            /*width: 300px;*/
+        }
+        
+        /*div:after {
             content: 'test';
         }
-
+        
         div:before {
             content: 'test2';
-        }*/
+        } */
 
-        /*div:first-letter {
+        /* div:first-letter {
             color: red;
             font-size: 30px;
             font-weight: bold;
-        }*/
+        } */
 
         /* div:first-line {
             color: red;
@@ -32,19 +34,27 @@
 
         /**********************/
 
+        /* ul {
+            overflow: hidden;
+        } */
+
         ul, li {
             list-style: none;
         }
-
+        
         li {
             float: left;
             margin-right: 20px;
         }
-
+        
         ul:after {
             content: '';
-            clear: both;
             display: block;
+            clear: both;
+        } 
+
+        .clear {
+            clear: both;
         }
     </style>
 </head>
@@ -60,6 +70,7 @@
         <li>item3</li>
         <li>item4</li>
         <li>item5</li>
+        <!-- <div class="clear"></div> -->
     </ul>
     <div>my div</div>
 
