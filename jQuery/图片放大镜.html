@@ -93,6 +93,12 @@
 		right: -502px;
 		visibility: hidden;
 	}
+
+	.big-img-wp img.tmp-big-img {
+		width: auto;
+		height: auto;
+		display: none;
+	}
 	</style>
 
 	<script src="../lib/jquery-1.12.1.min.js"></script>
@@ -112,7 +118,8 @@
 			init: function() {
 				$target = $(this.selector);
 				$bigImgWp = $target.find('.big-img-wp');
-				$bigImg = $bigImgWp.find('img');
+				$bigImg = $bigImgWp.find('img.big-img');
+				$tmpBigImg = $bigImgWp.find('img.tmp-big-img');
 				$imgMasker = $bigImgWp.find('.img-masker');
 				$imgZoomer = $bigImgWp.find('.img-zoomer');
 				$prevNext = $target.find('a.prev, a.next');
@@ -129,9 +136,20 @@
 				}).on('mousemove', function(e) {
 					// console.log($bigImgWp.offset())
 					var w = $imgMasker.width(), h = $imgMasker.height();
+					var ow = $bigImg.width(), oh = $bigImg.height();
+					var bw = $tmpBigImg.width(), bh = $tmpBigImg.height();
+
+					var scaleX = bw / ow;
+					var scaleY = bh / oh;
+
+					// console.log(scaleX)
+
 					var bh = $bigImgWp.height();
 					var top = e.pageY - $bigImgWp.offset().top - h / 2;
 					var left = e.pageX - $bigImgWp.offset().left - w / 2;
+
+					var btop = e.pageY * scaleY - $imgZoomer.height() / 2;
+					var bleft = e.pageX * scaleX - $imgZoomer.width() / 2;
 
 					top = top < 0 ? 0 : top;
 					if (top + h > bh) {
@@ -146,19 +164,19 @@
 					});
 
 					////////////////////////
-					/*$imgZoomer.css( "background", "url(" + $bigImg.attr("bsrc") + ") no-repeat");
+					
+					$imgZoomer.css( "background", "url(" + $tmpBigImg.attr("src") + ") no-repeat");
 					$imgZoomer.css({
-						"background-position": -left + "px" + " " + - top + "px"
-					});*/
+						"background-position": -bleft + "px" + " " + - btop + "px"
+					});
 				});
 			},
 			initSmallImgHover: function() {
 				var $lis = $target.find('.small-img-inner li');
 				$lis.on('mouseover', function() {
 					var $this = $(this);
-					$bigImg
-						.attr('src', $this.find('img').attr('src'))
-						.attr('bsrc', $this.find('img').attr('bsrc'));
+					$bigImg.attr('src', $this.find('img').attr('src'));
+					$tmpBigImg.attr('src', $this.find('img').attr('bsrc'));
 					$this.addClass('active').siblings('.active').removeClass('active');
 				});
 			},
@@ -189,7 +207,8 @@
 
 	<div class="img-zoom-wp">
 		<div class="big-img-wp">
-			<img src="img/m1.jpg" bsrc="img/m11.jpg">
+			<img class="big-img" src="img/m1.jpg">
+			<img class="tmp-big-img" src="img/m11.jpg">
 			<div class="img-masker"></div>
 			<div class="img-zoomer"></div>
 		</div>

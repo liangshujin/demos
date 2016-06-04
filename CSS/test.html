@@ -3,9 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	
+	<style>
+	.test {
+		width: 400px;
+		background-color: red;
+		height: 50px;
+	}
+	</style>
 </head>
 <body>
+
+	<div class="test">
+		
+	</div>
 
 	<script>
 
@@ -41,18 +51,18 @@
 
 		p([1, 2, 3]);*/
 
-		function ppp(arr) {
-			var i = 0, len = arr.length, timer;
-			timer = setInterval(function() {
-				if (i >= len-1) {
-					clearInterval(timer);
-				}
-				console.log(arr[i]);
-				i++;
-			}, 200);
-		}
+		// function ppp(arr) {
+		// 	var i = 0, len = arr.length, timer;
+		// 	timer = setInterval(function() {
+		// 		if (i >= len-1) {
+		// 			clearInterval(timer);
+		// 		}
+		// 		console.log(arr[i]);
+		// 		i++;
+		// 	}, 200);
+		// }
 
-		ppp([1, 2, 3]);
+		// ppp([1, 2, 3]);
 	</script>
 	
 </body>

@@ -3,7 +3,7 @@
  */
 !function(window, document, $, undefined) {
 
-    var students = '魏先强 窦子龙 宋韶华 张亚娟 宋晓彦 郭永强 王乔熙'.split(' '),
+    var students = '程红岩 董荣 雷亚超 李晓辉 李振亚 王云 王子文 张晓慧 郭强'.split(' '),
         urls = [
             'http://www.mia.com/(密芽)',
             'http://www.mogujie.com/(蘑菇街)',
@@ -11,7 +11,9 @@
             'http://www.mafengwo.cn/(马蜂窝)',
             'http://www.haibao.com/(海报时尚网)',
             'http://y.qq.com/#type=index(qq音乐)',
-            'http://beijing.haodai.com/(好贷网)'
+            'http://beijing.haodai.com/(好贷网)',
+            'http://huayu.baidu.com/(百度书城)',
+            'http://www.xin.com/beijing/(优信二手车)'
         ],
         timer;
 
