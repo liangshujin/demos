@@ -10,7 +10,7 @@
 				sLeft = $scrollerInner.scrollLeft(),
 				ulWidth = $scrollerUL.width(),
 				timer,
-				direction = 'r-2-l',
+				// direction = 'r-2-l',
 				speed = 20;
 
 			$scrollerUL.after($scrollerUL.clone()).after($scrollerUL.clone());
@@ -23,7 +23,7 @@
 				scroller();
 			});
 
-			function scroller(direction) {
+			function scroller() {
 
 				timer = setInterval(function() {
 					if (sLeft >= ulWidth) {
