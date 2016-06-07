@@ -6,6 +6,8 @@
 
     $db->where('id', $id);
 
+    sleep(2);
+
     if ($db->delete('usermng')) {
         echo json_encode(Array("success" => true, "message" => "用户删除成功"));
     } else {

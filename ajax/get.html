@@ -12,7 +12,7 @@
 				// var url = '../json/data.txt';
 				var url = '../userMng/server/ajaxUserList.php';
 
-				$.get(url, function(response) {
+				$.get(url, {size: 3}, function(response) {
 
 					console.log(response.data)
 

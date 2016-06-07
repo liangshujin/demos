@@ -34,6 +34,8 @@ $wbc2_user = $db -> rawQuery($sql);
 $wbc2_user_count = $db -> get('usermng');
 $total = $db->count;
 
+sleep(2);
+
 if (isset($callback)) {
     echo $callback . '(' . json_encode(Array("success" => true, "total" => $total, "data" => $wbc2_user) ) . ')';
 } else {

@@ -39,6 +39,8 @@
 
     $id = $db->insert ('usermng', $data);
 
+    sleep(2);
+
     if ($id > 0) {
     	// echo 'success';
         echo json_encode(array("success" => true, "message" => "注册成功"));
