@@ -146,43 +146,109 @@ if (age < 18) {
 
 // console.log(info);
 
-var day = 5;
+// var day = 5;
 
-var info = '今天是：';
+// var info = '今天是：';
 
-switch(day) {
+// switch(day) {
 
-	case 0:
-		info += '星期日';
+// 	case 0:
+// 		info += '星期日';
+// 		break;
+
+// 	case 1:
+// 		info += '星期一';
+// 		break;
+
+// 	case 2:
+// 		info += '星期二';
+// 		break;
+
+// 	case 3:
+// 		info += '星期三'; // info = info + '星期三';
+// 		break;
+
+// 	case 4:
+// 		info += '星期四';
+// 		break;
+
+// 	case 5:
+// 		info += '星期五';
+// 		break;
+
+// 	case 6:
+// 		info += '星期六';
+// 		break;
+
+// 	default: 
+// 		info = '非法日期';
+
+// }
+
+// console.log(info);
+
+/*console.log(1);
+console.log(2);
+console.log(3);
+console.log(4);
+console.log(5);
+console.log(6);
+console.log(7);
+console.log(8);
+console.log(9);
+console.log(10);*/
+
+/*for (var i=1; i<=1000; i++) {
+	console.log(i);
+} 
+
+console.log('循环结束');*/
+
+// var total = 0;
+
+/*for (var i=2; i<=100; i+=2) {
+	total += i;
+}*/
+
+/*for (var i=1; i<=100; i++) {
+	if (i % 2 == 0) {
+		total += i; // total = total + i;
+	}
+	// console.log(i);
+}*/
+
+/*var i = 101;
+
+while(i<=100) {
+	total += i;
+	i++;
+}*/
+/*
+var i = 101;
+
+do {
+	total += i;
+	i++;
+} while(i<=100);
+
+console.log(total);*/
+
+/*for (var i=0; i<10; i++) {
+	if (i == 5) {
 		break;
-
-	case 1:
-		info += '星期一';
-		break;
-
-	case 2:
-		info += '星期二';
-		break;
-
-	case 3:
-		info += '星期三'; // info = info + '星期三';
-		break;
-
-	case 4:
-		info += '星期四';
-		break;
-
-	case 5:
-		info += '星期五';
-		break;
-
-	case 6:
-		info += '星期六';
-		break;
-
-	default: 
-		info = '非法日期';
-
+		// continue;
+	}
+	console.log(i);
 }
 
-console.log(info);
+console.log('end for');
+*/
+
+try {
+	alert2('test');
+} catch (e) {
+	// alert('刚才是想弹出一个字符串：test');
+	// throw '你的网络不稳定，请稍后重试';
+}
+
+alert('other code');
