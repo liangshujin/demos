@@ -244,11 +244,46 @@ console.log(total);*/
 console.log('end for');
 */
 
-try {
+/*try {
 	alert2('test');
 } catch (e) {
 	// alert('刚才是想弹出一个字符串：test');
 	// throw '你的网络不稳定，请稍后重试';
 }
 
-alert('other code');
+alert('other code');*/
+
+// test();
+// var test2;
+// test2();
+
+// function test() {
+// 	alert('test');
+// }
+
+// var test2 = function() {
+// 	alert('test2');
+// };
+
+
+// test2();
+
+// test();
+
+function sum(x, y, z) {
+	// var x = 7, y = 9, z;
+	// console.log(7 + 8);
+	// console.log(x + y);
+
+	var total = 0;
+
+	if (z != undefined) { // ???
+		total = x + y + z;
+	} else {
+		total = x + y;
+	}
+
+	console.log(total);
+}
+
+sum(22, 3.5, 7);
