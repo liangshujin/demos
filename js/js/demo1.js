@@ -270,20 +270,52 @@ alert('other code');*/
 
 // test();
 
-function sum(x, y, z) {
-	// var x = 7, y = 9, z;
-	// console.log(7 + 8);
-	// console.log(x + y);
+// function sum(x, y, z) {
+// 	// var x = 7, y = 9, z;
+// 	// console.log(7 + 8);
+// 	// console.log(x + y);
 
-	var total = 0;
+// 	var total = 0;
 
-	if (z != undefined) { // ???
-		total = x + y + z;
-	} else {
-		total = x + y;
-	}
+// 	if (z != undefined) { // ???
+// 		total = x + y + z;
+// 	} else {
+// 		total = x + y;
+// 	}
 
-	console.log(total);
-}
+// 	console.log(total);
+// }
 
-sum(22, 3.5, 7);
+// sum(22, 3.5, 7);
+
+// function sum(x, y) {
+// 	console.log(x + y);
+// }
+
+// function sum2(x, y) {
+// 	alert(x + y);
+// }
+
+// function sum3(x, y) {
+// 	document.write(x + y);
+// }
+
+var sum = function(num1, num2) {
+	// alert(888);
+	var total = num1 + num2;
+	// console.log(num1 + num2);
+	// return num1 + num2;
+	// return 'abc';
+
+	// alert(999);
+
+	return total;
+
+	total = 100;
+};
+
+var r = sum(7, 8);
+
+// alert(r)
+console.log(r)
+// document.write(r)
