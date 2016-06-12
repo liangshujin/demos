@@ -27,6 +27,8 @@
 
     $db->where ('id', $id);
 
+    sleep(2);
+
     if ($db->update ('usermng', $data)) {
         echo json_encode(array("success" => true, "message" => "修改成功"));
     } else {

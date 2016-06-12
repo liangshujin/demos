@@ -31,6 +31,14 @@
 }
 
 .col-action {
-	width: 90px;
+	width: 100px;
 	text-align: center;
+}
+
+.search-wp {
+	width: 300px;
+}
+
+.mt-5 {
+	margin-top: 5px;
 }

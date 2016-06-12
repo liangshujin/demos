@@ -16,9 +16,11 @@
 				gender: '女',
 				address: '北京市海淀区123',
 				mobile: '1501009999',
-				hobbies: '爬山',
+				hobbies: getHobbies(),
 				img: 'abc.png'
 			};
+
+			// console.log(data)
 
 			// check 
 
@@ -39,6 +41,16 @@
 					}, 2000);
 				}
 			}, 'json');
+
+
+			function getHobbies() {
+				var hbs = $('[name=hobbies]:checked');
+				var hbsArr = [];
+				$.each(hbs, function() {
+					hbsArr.push(this.value);
+				});
+				return hbsArr.join('|');
+			}
 		}
 	};
 

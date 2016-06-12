@@ -67,6 +67,8 @@ $(document).ready(function() {
 			uid = $this.attr('uid'), // this.uid
 			currObj = cache[uid];
 
+		// console.log(currObj);
+
 		$maskerWp.find('#uid').val(currObj.id);
 		$maskerWp.find('input[name=name]').val(currObj.name);
 		$maskerWp.find('input[name=age]').val(currObj.age);
