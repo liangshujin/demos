@@ -300,22 +300,144 @@ alert('other code');*/
 // 	document.write(x + y);
 // }
 
-var sum = function(num1, num2) {
-	// alert(888);
-	var total = num1 + num2;
-	// console.log(num1 + num2);
-	// return num1 + num2;
-	// return 'abc';
+// var sum = function(num1, num2) {
+// 	// alert(888);
+// 	var total = num1 + num2;
+// 	// console.log(num1 + num2);
+// 	// return num1 + num2;
+// 	// return 'abc';
 
-	// alert(999);
+// 	// alert(999);
 
-	return total;
+// 	return total;
 
-	total = 100;
+// 	total = 100;
+// };
+
+// var r = sum(7, 8);
+
+// // alert(r)
+// console.log(r)
+// document.write(r)
+
+// var o = new Object();
+
+// var o = new Object;
+/*
+var o = {};
+
+console.log(o);*/
+
+/*var Dog = {};
+
+Dog.color = 'black';
+Dog.age = 3;
+Dog.length = '1.2m';
+Dog.hasChildren = false;
+Dog.childrenName = undefined;
+Dog.eyeColor = 'black';
+Dog.color = 'yellow';
+Dog.eat = function() {
+	console.log('this dog is eating...');	
+};
+*/
+
+/*var Dog = {
+	name: 'wangcai',
+	color: 'black',
+	age: 3,
+	length: '1.2m',
+	childrenName: undefined,
+	hasChildren: false,
+	eyeColor: 'black',
+	'nick name': 'awang',
+	eat: function() {
+		// console.log(this);
+		console.log(this.name + ' is eating...');
+	}
 };
 
-var r = sum(7, 8);
+console.log(Dog['nick name']);*/
 
-// alert(r)
-console.log(r)
-// document.write(r)
+// for (var dog in Dog) {
+// 	// console.log(dog);
+// 	// console.log(Dog.dog);
+// 	console.log(Dog[dog]);
+// }
+
+// Dog.age = 5;
+
+// delete Dog.length;
+
+// console.log(Dog);
+
+// Dog.eat();
+// Dog['eat']();
+
+// var color = 'black';
+
+/*var Dog = {
+	"color": 'black',
+	"age": 3,
+	"length": '1.2m',
+	"childrenName": undefined,
+	"hasChildren": false,
+	"eyeColor": 'black'
+};*/
+
+
+// console.log(Dog.length);
+// console.log(Dog['color']);
+
+
+// function test() {
+// 	console.log(this);
+// }
+
+// test();
+
+/*function testStatrChar(str) {
+	if (str.charAt(0) == 'a') {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+var str = 'adaef';
+
+var r = testStatrChar(str);
+
+console.log(r);*/
+
+/*var Wbc5 = {
+	testChar: function(str) {
+		if (str.indexOf('a') == 0) {
+		// if (str.charAt(0) == 'a') {
+			return true;
+		} else {
+			return false;
+		}
+	},
+	name: 'abc'
+};
+
+var r = Wbc5.testChar('ahijk');
+
+console.log(r);*/
+
+// var d = new Date();
+
+// console.log(d);
+
+// ****年**月**日 **：**：**
+
+function getFormatDate(date) {
+	return date.getFullYear() + '年' + (date.getMonth() + 1) + '月' + date.getDate() + '日' + ' ' + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+}
+
+var currDate = new Date();
+
+var d = getFormatDate(currDate);
+
+console.log(d);
