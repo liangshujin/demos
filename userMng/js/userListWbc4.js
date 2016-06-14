@@ -1,5 +1,9 @@
 !function(window, document, $, undefined) {
 
+	var PAGESIZE = 5;
+	var CURRPAGE = 0;
+	var TOTALPAGE = 0;
+
 	var UserMng = {
 		cache: {},
 		currUid: 0,
@@ -15,6 +19,7 @@
 			$('#userTable').on('click', '.update-btn', this.onUpdateBtnClick);
 			$('#saveUpdateBtn').on('click', this.onSaveUpdateBtnClick);
 			$('#searchBtn').on('click', this.onSearchBtnClick);
+			$('#pagingUl').on('click', 'li', this.onPagingLiClick);
 		},
 		onSearchBtnClick: function() {
 			var query = $('#queryIpt').val();
@@ -105,8 +110,9 @@
 			var url = 'server/ajaxUserList.php';
 			var trTpl = $('#trTpl').html();
 			var param = {
-				size: 10,
-				query: query || ''
+				size: PAGESIZE,
+				query: query || '',
+				page: CURRPAGE
 			};
 
 			this.$loadingWp.show();
@@ -123,6 +129,8 @@
 					UserMng.cache[obj.id] = obj;
 				});
 
+				UserMng.renderPaging(response.total);
+
 				$('#userTable tbody').html(trs.join(''));
 				// ??
 
@@ -133,6 +141,49 @@
 			}, 'json');
 			// ?
 			// console.log('aaa');
+		},
+		onPagingLiClick: function() {
+			var $this = $(this),
+				page = $this.attr('page') || 0;
+
+			if ($this.hasClass('last-page')) {
+				CURRPAGE = TOTALPAGE - 1;
+			} else {
+				CURRPAGE = page;
+			}
+
+			UserMng.initUserList();
+		},
+		renderPaging: function(total) {
+			var liArr = [];
+			TOTALPAGE = Math.ceil(total / PAGESIZE),
+
+			liArr.push(
+				'<li class="first-page">',
+			      '<a href="javascript:void(0)" aria-label="Previous">',
+			        '<span aria-hidden="true">&laquo;</span>',
+			      '</a>',
+			    '</li>'
+			);
+
+			for (var i=0; i<TOTALPAGE; i++) {
+				if (i == CURRPAGE) {
+					liArr.push('<li page="', i, '" class="active"><a href="javascript:;">', i + 1, '</a></li>');
+				} else {
+					liArr.push('<li page="', i, '"><a href="javascript:;">', i + 1, '</a></li>');
+				}
+			}
+
+			liArr.push(
+				'<li class="last-page">',
+			      '<a href="javascript:void(0)" aria-label="Next">',
+			        '<span aria-hidden="true">&raquo;</span>',
+			      '</a>',
+			    '</li>'
+			);
+
+			$('#pagingUl').html(liArr.join(''));
+
 		}
 	};
 
