@@ -3,6 +3,7 @@
 	var PAGESIZE = 5;
 	var CURRPAGE = 0;
 	var TOTALPAGE = 0;
+	var QUERY = '';
 
 	var UserMng = {
 		cache: {},
@@ -20,10 +21,19 @@
 			$('#saveUpdateBtn').on('click', this.onSaveUpdateBtnClick);
 			$('#searchBtn').on('click', this.onSearchBtnClick);
 			$('#pagingUl').on('click', 'li', this.onPagingLiClick);
+			$('#queryIpt').on('keyup', this.onQueryIptKeyup);
+		},
+		onQueryIptKeyup: function(e) {
+			// console.log(e.keyCode)
+			if (e.keyCode == 13) {
+				UserMng.onSearchBtnClick();
+			}
 		},
 		onSearchBtnClick: function() {
 			var query = $('#queryIpt').val();
-			UserMng.initUserList(query);
+			QUERY = query;
+			CURRPAGE = 0;
+			UserMng.initUserList();
 		},
 		onSaveUpdateBtnClick: function() {
 			var url = 'server/ajaxUpdateUser.php';
@@ -106,12 +116,12 @@
 			}, 'json');
 
 		},
-		initUserList: function(query) {
+		initUserList: function() {
 			var url = 'server/ajaxUserList.php';
 			var trTpl = $('#trTpl').html();
 			var param = {
 				size: PAGESIZE,
-				query: query || '',
+				query: QUERY,
 				page: CURRPAGE
 			};
 
