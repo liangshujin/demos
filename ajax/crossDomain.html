@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery 实现Ajax跨域请求</title>
+	<script src="../lib/jquery-1.12.1.min.js"></script>
+</head>
+<body>
+
+	<button id="requestBtn">发送Ajax请求</button>
+
+
+	<script>
+
+		$('#requestBtn').on('click', function() {
+			/*var url = 'http://localhost/demos/userMng/server/ajaxUserList.php?callback=?';
+			$.get(url, function(response) {
+				console.log(response);
+			}, 'json');*/
+
+			/*var url = 'http://localhost/demos/userMng/server/ajaxUserList.php?callback=?';
+			$.getJSON(url, function(response) {
+				console.log(response);
+			});*/
+
+			$.ajax({
+				url: 'http://localhost/demos/userMng/server/ajaxUserList.php?callback=?',
+				data: {size: 5},
+				dataType: 'json',
+				success: function(response) {
+					console.log(response)
+				}
+			});
+		});
+
+		/*function CrossDomain() {
+
+		}
+
+		CrossDomain.init = function() {
+			console.log(999)
+		}
+
+		CrossDomain.init();*/
+
+		// console.log(CrossDomain instanceof Object)
+	</script>
+</body>
+</html>
