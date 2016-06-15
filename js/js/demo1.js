@@ -443,3 +443,78 @@ console.log(r);*/
 // console.log(d);
 
 // alert(999);
+
+// var arr = new Array();
+
+// var arr = new Array(10);
+
+// var arr = [];
+
+// arr[0] = 'a';
+
+// arr[1] = 'b';
+
+// arr[2] = 'c';
+
+// var arr = new Array('a', 'b', 'c', 'd');
+
+// var arr = ['a', 'b', 'c', 'd', 'e'];
+
+// var arr = ['a', 1, true, undefined, null, {name: 'test'}, [2, 3, 4]];
+
+// console.log(arr.length);
+
+// for (var i=0; i<arr.length; i++) {
+// 	console.log(arr[i]);
+// }
+
+// for (var index in arr) {
+// 	console.log(arr[index]);  // arr[0]
+// }
+
+// arr.length = 0;
+
+// arr = [];
+
+// console.log(arr[5]['name']);
+
+// console.log(arr[6][1]);
+
+// arr[1] = 2;
+// arr[5].name = 'zhangsan';
+
+// console.log(arr);
+
+// var arr1 = [1, 2, 3];
+
+
+
+// var r = arr1.join('|');
+
+// console.log(typeof r);
+
+// console.log(arr1.join('|'));
+
+// var arr2 = ['a', 'b'];
+
+// var arr3 = arr1.concat(arr2);
+// var arr3 = arr2.concat(arr1);
+
+// console.log(arr3);
+
+// console.log(arr1 + arr2);
+
+// arr1.toString();
+
+
+var arr3 = [2, 8, 6, 33, 1, 9];
+
+console.log(arr3);
+
+arr3.sort(function(x, y) {
+	return x - y;
+});
+
+console.log(arr3);
+
+// console.log(arr3.sort());
