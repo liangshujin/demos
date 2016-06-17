@@ -507,14 +507,34 @@ console.log(r);*/
 // arr1.toString();
 
 
-var arr3 = [2, 8, 6, 33, 1, 9];
+// var arr3 = [2, 8, 6, 33, 1, 9];
 
-console.log(arr3);
+// console.log(arr3);
 
-arr3.sort(function(x, y) {
-	return x - y;
-});
+// arr3.sort(function(x, y) {
+// 	return x - y;
+// });
 
-console.log(arr3);
+// console.log(arr3);
 
 // console.log(arr3.sort());
+
+// var f = true;
+
+// var f = -2;
+
+// var f = ' ';
+
+// var f = null;
+
+// var f;
+
+// var f = [1, 2, 3];
+
+// var f = {};
+
+// if (f) {
+// 	alert(9);
+// } else {
+// 	alert(10);
+// }
