@@ -27,7 +27,7 @@
 				}, 2000);
 			}
 			
-			// autoPlay();
+			autoPlay();
 				
 			// 底部圆点点击事件
 		    $target.find('.img-trigger li').on('click', function() {
