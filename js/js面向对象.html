@@ -53,9 +53,16 @@
 			this.name = name;
 			this.age = age;
 			this.color = color;
-			this.eat = function() {
-				console.log(this.name + ' is eating...');
-			}
+			this.eat = eat;
+			// this.eat = function() {
+			// 	console.log(this.name + ' is eating...');
+			// }
+		}
+
+		// Dog.prototype
+
+		function eat() {
+			console.log(this.name + ' is eating....');
 		}
 
 		var dog4 = new Dog('xiaohua', 1.5, 'black and white');
@@ -71,6 +78,44 @@
 		Dog.apply(obj, ['mm2', 2, 'brown']);
 
 
+		function Cat() {}
+
+		Cat.prototype.name = 'xiaoA';
+		Cat.prototype.age = 2;
+		Cat.prototype.color = 'white';
+		Cat.prototype.run = function() {
+			console.log(this.name + ' is running...');
+		}
+
+		var cat1 = new Cat();
+		var cat2 = new Cat();
+
+		function Monkey(name, age, color) {
+			this.name = name;
+			this.age = age;
+			this.color = color;
+		}
+
+		Monkey.prototype = {
+			climb: function() {
+				console.log(this.name + ' is climbing...');
+			},
+			run: function() {
+				console.log(this.name + ' is running...');
+			}
+		};
+
+		/*Monkey.prototype.climb = function() {
+			console.log(this.name + ' is climbing...');
+		};
+
+		Monkey.prototype.run = function() {
+			console.log(this.name + ' is running...');
+		};*/
+
+		var m1 = new Monkey('dasheng', 500, 'yellow');
+		var m2 = new Monkey('jiji', 50, 'brown');
+		var m3 = new Monkey('maomao', 5, 'yellow');
 
 	</script>
 </body>
